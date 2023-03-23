@@ -12,4 +12,4 @@ type First<T extends any[]> = T extends [] ? never : T[0]
 // extends union 判断的规则, 类似于第一种，遍历整个数组判断是否存在第一项
 // 当时空数组的时候，T[0]获取的undefined不会在遍历的T空数组元素中: T[0] extends T[number] ? T[0] : never
 
-// inter的使用(推断) 类比于js中的解构赋值 T extends [inter First, ... inter Rest] ? First : never
+// infer的使用(设置变量) 类比于js中的解构赋值 T extends [infer First, ... infer Rest] ? First : never
