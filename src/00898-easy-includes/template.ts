@@ -10,6 +10,13 @@ export type Includes<T extends readonly any[], U> = T extends [
     : Includes<Rest, U>
   : false;
 
+// Equal 的实现如下
+// export type Equal<X, Y> =
+//   (<T>() => T extends X ? 1 : 2) extends
+//   (<T>() => T extends Y ? 1 : 2) ? true : false
+// 从代码上看没有直接X extends Y，猜测是因为需要某个类型同时extends这两个类型才能判断他们相等
+
+
 // 题目大意较为简明，判断U是否有值在T中，直接解法就是遍历一个一个比较
 // 但是要直接返回boolean类型，之前在对象里遍历的方法都不好用了
 // 这里只能选用之前用过的递归去遍历，再加上之前实现过的first写法，综合js实现如下
