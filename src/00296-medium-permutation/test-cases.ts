@@ -8,4 +8,4 @@ type cases = [
   Expect<Equal<Permutation<never>, []>>,
 ]
 
-type a = Exclude<'A' | 'B' | 'C', 'A' | 'B' | 'C'>
+type a = Exclude<'A' | 'B' | 'C', 'A'>

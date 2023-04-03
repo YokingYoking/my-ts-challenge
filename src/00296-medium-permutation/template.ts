@@ -1,3 +1,10 @@
-type Permutation<T> = T extends never ? [] : never
+type Permutation<T, K=T> = [T] extends [never] ? [] : K extends any ? [K, ...Permutation<Exclude<T, K>>] : []
 
 // 题目大意，给一个union，返回所有排序可能的数组
+// 这题也比较难没什么思路，根据case渐进式，配合答案去思考解题方法
+// 首先case5比较好实现，一定是前置判断的条件，但是不能直接判断T extends never，因为never也不会extends never，
+// 所以要都用数组包裹起来来判断
+// 原本这个思路比较好想，比如在js中，写一个递归，不断的固定前面几个元素的顺序，直到只剩一个元素，问题就是如何在ts中实现
+// 至于后面的主要解题，首先考虑，对于union来说，本身直接写一个泛型就是相当于遍历了
+// 因此后面加的K泛型其实就是在遍历T，因此返回出来的数组先固定好K，剩余的部分再丢进去递归
+// 剩余的部分直接使用工具函数把K从T这个集合中去掉即可
