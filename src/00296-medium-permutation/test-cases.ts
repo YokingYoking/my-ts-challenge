@@ -7,3 +7,5 @@ type cases = [
   Expect<Equal<Permutation<boolean>, [false, true] | [true, false]>>,
   Expect<Equal<Permutation<never>, []>>,
 ]
+
+type a = Exclude<'A' | 'B' | 'C', 'A' | 'B' | 'C'>
