@@ -1,0 +1,1 @@
+type StringToUnion<T extends string> = T extends '' ? never : T extends `${infer First}${infer Rest}` ? First | StringToUnion<Rest> : T 
