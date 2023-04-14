@@ -13,3 +13,4 @@ type InorderTraversal<T extends TreeNode | null> = [T] extends [TreeNode]
   // 所以直接返回一个数组分别先对左节点递归解构展开，返回该node的value，再对右节点递归解构展开
   // 这样写test是都通过了，但是汇报一个“类型实例化过深且可能无限”的错误
   // 这是因为在最前面写T extends TreeNode的时候没有用中括号括起来
+  // 为什么要这样写：在条件判断类型的定义中，将泛型参数使用[]括起来，即可阻断条件判断类型的分配，此时，传入参数T的类型将被当做一个整体，不再分配。
