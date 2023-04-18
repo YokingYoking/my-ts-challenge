@@ -16,4 +16,5 @@ type GreaterThan<T extends number, U extends number> = Number2Array<U> extends [
 // 所以T大于U时，就是判断T是否extends一个U和any元素展开拼在一起的数组
 // 按上面这个思路写会发现相等时也返回了true，因此把逻辑反过来，就可以把相等的情况返回出来false
 // 即判断U是否extendsT和any元素拼在一起的数组，是则返回false
-// 这里基本处理完，但最后一个大数仍报错实例化过深，
+// 这里基本处理完，但最后一个大数仍报错实例化过深，看了一下大家的参考答案基本都存在这个问题
+// 之后再回来考虑怎么解决
